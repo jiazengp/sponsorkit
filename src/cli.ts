@@ -1,11 +1,12 @@
-import type { SponsorkitConfig } from './types'
+#!/usr/bin/env node
+import type { SponsorkitConfig } from './types.ts'
 import cac from 'cac'
-import { version } from '../package.json'
-import { run } from './run'
+import pkg from '../package.json' with { type: 'json' }
+import { run } from './run.ts'
 
 const RE_FILTER = /([<>=]+)(\d+)/
 const cli = cac('sponsors-svg')
-  .version(version)
+  .version(pkg.version)
   .help()
 
 cli
